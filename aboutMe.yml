@@ -1,6 +1,6 @@
 name: Tom Rowe
 studentNumber: z5246739
 officialEmail: z5246739@ad.unsw.edu.au
-contactEmail: tomrowingboat@gmail.com
+contactEmail:
   firstBit: tomrowingboat  # this avoids spam, the @ is implied
   otherBit: gmail.com

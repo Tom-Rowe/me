@@ -12,7 +12,7 @@ import platform
 print("hello! Let's get started")  # it printed "hello! Let's get started"
 
 some_words = ['what', 'does', 'this', 'line', 'do', '?']
-
+# I think that this will print each word in the list
 for word in some_words:
     print(word)
 
