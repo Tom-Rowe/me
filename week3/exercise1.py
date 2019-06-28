@@ -90,15 +90,16 @@ def super_asker(low, high):
     Try to call at least one of the other functions to minimise the
     amount of code.
     """
-    x = 0
-    while x < low or x > high:
-        if x < low:
-            x = x + 1
-        elif x > high:
-            x = x - 1
-    
-    return x
-
+    message = input('number?')
+    while True:
+        try: 
+            message.isdigit
+            return message
+        except ValueError:
+            while message < low or message > high:
+                message = message+1
+            else:
+                return message
 
 if __name__ == "__main__":
     # this section does a quick test on your results and prints them nicely.
