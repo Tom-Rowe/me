@@ -36,7 +36,17 @@ if __name__ == "__main__":
 
 
 
-
+    def super_asker(message)
+   message = input('number?')
+    while True:
+        try: 
+            message.isdigit
+            return message
+        except ValueError:
+            while message < low or message > high:
+                message = message+1
+            else:
+                return message
 
 
 
@@ -51,7 +61,7 @@ def exampleGuessingGame():
     This is an example guessing game. It'll test as an example too.
     """
     print("\nWelcome to the guessing game!")
-    print("A number between 0 and _ ?")
+    print("A number between 10 and _ ?")
     upperBound = input("Enter an upper bound: ")
     print("OK then, a number between 10 and {} ?".format(upperBound))
     upperBound = int(upperBound)
@@ -71,11 +81,3 @@ def exampleGuessingGame():
         else:
             print("Too big, try again :'(")
     return "You got it!"
-
-
-if __name__ == "__main__":
-    exampleGuessingGame()
-
-
-
-    def get_a
