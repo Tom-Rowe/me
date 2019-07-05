@@ -75,3 +75,7 @@ def exampleGuessingGame():
 
 if __name__ == "__main__":
     exampleGuessingGame()
+
+
+
+    def get_a

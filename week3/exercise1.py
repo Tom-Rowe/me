@@ -72,17 +72,14 @@ def not_number_rejector(message):
     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    def get_a_number(message):
-        while True:
-            try:
-                answer = input(message)
-                answer = int(answer)
-                return answer
-            except Exception as e:
-                pass
-    
+    while True:
+        try: 
+            message.isdigit
+            return message
+        except ValueError:
+            return True
+    return message
 
-    print(get_a_number("give me the money lebowski"))
 
 def super_asker(low, high):
     """Robust asking function.
