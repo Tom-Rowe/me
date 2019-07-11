@@ -39,10 +39,12 @@ def get_some_details():
     lastName = data["results"][0]["name"]["last"]
     password = data["results"][0]["login"]["password"]
     the_id = data["results"][0]["id"]["value"]
-    postccode = data["results"][0]["location"]["postcode"]
+    postcode = data["results"][0]["location"]["postcode"]
 
-    
-    return {"lastName": None, "password": None, "postcodePlusID": None}
+    pANDid = postcode + the_id
+
+
+    return {"lastName": lastName, "password": pass, "postcodePlusID": pANDid}
 
 
 def wordy_pyramid():
@@ -103,6 +105,7 @@ def pokedex(low=1, high=5):
     r = requests.get(url)
     if r.status_code is 200:
         the_json = json.loads(r.text)
+        the_json = r.json()
     return {"name": None, "weight": None, "height": None}
 
 
