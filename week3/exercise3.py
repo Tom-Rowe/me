@@ -35,27 +35,20 @@ if __name__ == "__main__":
 
 
 
-
-    def super_asker(message)
-   message = input('number?')
-    while True:
-        try: 
-            message.isdigit
-            return message
-        except ValueError:
-            while message < low or message > high:
-                message = message+1
-            else:
-                return message
-
-
-
-
-
 import random
 
 
-def exampleGuessingGame():
+def get_a_number(message):
+    while True:
+        try:
+            answer = input(message)
+            answer = int(answer)
+            return answer
+        except Exception:
+            pass
+
+
+def GuessingGame():
     """Play a game with the user.
 
     This is an example guessing game. It'll test as an example too.
@@ -77,7 +70,7 @@ def exampleGuessingGame():
             print("You got it!! It was {}".format(actualNumber))
             guessed = True
         elif guessedNumber < actualNumber:
-            print("Too small, try again :'(")
+            print("Sorry buddy, that was too damn small, go pick a new number")
         else:
-            print("Too big, try again :'(")
+            print("You're really bad at this, pick a bigger number")
     return "You got it!"
