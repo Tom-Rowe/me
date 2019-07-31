@@ -40,11 +40,9 @@ def get_some_details():
     password = data["results"][0]["login"]["password"]
     the_id = data["results"][0]["id"]["value"]
     postcode = data["results"][0]["location"]["postcode"]
+    pANDid = postcode + int(the_id)
 
-    pANDid = postcode + the_id
-
-
-    return {"lastName": lastName, "password": pass, "postcodePlusID": pANDid}
+    return {"lastName": lastName, "password": password, "postcodePlusID": pANDid}
 
 
 def wordy_pyramid():
@@ -85,6 +83,10 @@ def wordy_pyramid():
     pass
 
 
+
+
+
+
 def pokedex(low=1, high=5):
     """ Return the name, height and weight of the tallest pokemon in the range low to high.
 
@@ -100,13 +102,29 @@ def pokedex(low=1, high=5):
          variable and then future access will be easier.
     """
     template = "https://pokeapi.co/api/v2/pokemon/{id}"
-
+    """
     url = template.format(base=base, id=5)
     r = requests.get(url)
     if r.status_code is 200:
         the_json = json.loads(r.text)
         the_json = r.json()
-    return {"name": None, "weight": None, "height": None}
+    return {"name": None, "weight": None, "height": None} """
+
+
+    tall = 0
+    for i in range(low,high):
+        url = template.format(base=template, id=i)
+        r = requests.get(url)
+        if r.status_code is 200:
+            the_json = json.loads(r.text)
+            tallnew = the_json["height"]
+            if tallnew > tall:
+                tall = tallnew
+                name = the_json["name"]  
+                weight = the_json["weight"]
+                height = the_json["height"] 
+    return {"name": name, "weight": weight, "height": height}
+
 
 
 def diarist():
