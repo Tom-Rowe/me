@@ -40,7 +40,7 @@ def get_some_details():
     password = data["results"][0]["login"]["password"]
     the_id = data["results"][0]["id"]["value"]
     postcode = data["results"][0]["location"]["postcode"]
-    pANDid = postcode + int(the_id)
+    pANDid = int(postcode) + int(the_id)
 
     return {"lastName": lastName, "password": password, "postcodePlusID": pANDid}
 
@@ -141,6 +141,17 @@ def diarist():
          the test will have nothing to look at.
     """
     pass
+
+    gcode_data = open(LOCAL + "/Trispokedovetiles(laser).gcode").readlines()
+    number_of_times = 0
+    for cactusLine in gcode_data:
+        print(cactusLine)
+        if "M10 P1" in cactusLine:
+            number_of_times += 1
+    f = open("lasers.pew", "w")
+    f.write(str(number_of_times))
+    f.close
+
 
 
 if __name__ == "__main__":
