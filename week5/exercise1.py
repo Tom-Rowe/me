@@ -121,65 +121,168 @@ def tell_me_about_this_right_triangle(facts_dictionary):
         "This is a {aspect} triangle.\n"
     )
 
+    area=calculate_area
+    perimiter=calculate_perimeter
+    aspect=calculate_aspect
+    if facts_dictionary["aspect"] == "tall":
+        diagram = tall.format(**facts_dictionary)
+    elif facts_dictionary["aspect"] == "wide":
+        diagram = wide.format(**facts_dictionary)
+    else:
+        diagram = equal.format(**facts_dictionary)
     facts = pattern.format(**facts_dictionary)
-
-
-
-
-
+    return( diagram + "/n" + facts)
 
 
 
 
 def triangle_master(base, height, return_diagram=False, return_dictionary=False):
+    f=get_triangle_facts(base, height)
+    d=tell_me_about_this_right_triangle(f)
+    
     if return_diagram and return_dictionary:
-        return None
+        return {"diagram": d, "fasts":f}
     elif return_diagram:
-        return None
+        return d
     elif return_dictionary:
-        return None
+        return f
     else:
         print("You're an odd one, you don't want anything!")
 
 
-# def wordy_pyramid(api_key):
-#     import requests
+def wordy_pyramid(api_key):
+    import requests
+    url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={len}"
+    mino = 3
+    maxo = 20
+    wordlist = []
+    templist =[]
+    templist2 =[]
+    for i in range(mino,maxo+1):
+        fullurl=url.format(len=i)
+        pull = requests.get(fullurl)   
+        if pull.status_code is 200:         
+            randword = pull.content  
+                #    this retrives the word from the url
+            if randword is None: 
+                pass
+            else:
+                randword = str(randword)
+                # below checks if the word will have odd or even 
+                # no. of characters. Then it sorts them into 
+                # separate lists
+                if int(i) % 2 ==0:
+                    templist2.append(randword[2:len(randword)-1])
+                    #  issue with words from this url is that
+                    #  they look like --> b'word' 
+                    #  so i've applied the range filter as seen above
+                    #  and below so to ignore the b' and '
+                else:
+                    templist.append(randword[2:len(randword)-1])
+    templist2.reverse()
+    wordlist.extend(templist)
+    wordlist.extend(templist2)
+    return wordlist
+    # baseURL = (
+    #     "http://api.wordnik.com/v4/words.json/randomWords?"
+    #     "api_key=5586ih53eyafp9iaztwo57zpldgdwwftvv493ppcx0qhno868"
+    #     "&minLength={length}"
+    #     "&maxLength={length}"
+    #     "&limit=1"
+    # )
+    # pyramid_list = []
+    # def loopyloop(x,y,z):
+    #     for i in range(x, y, z):
+    #         url = baseURL.format(length=i)
+    #         r = requests.get(url)
+    #         if r.status_code is 200:
+    #             message = r.json()[0]["word"]
+    #             pyramid_list.append(message)
+    #         else:
+    #             print("failed a request", r.status_code, i)
+    # loopyloop(3,21,2)
+    # loopyloop(20,3,-2)    
+    # for i in range(20, 3, -2):
+    #     url = baseURL.format(length=i)
+    #     r = requests.get(url)
+    #     if r.status_code is 200:
+    #         message = r.json()[0]["word"]
+    #         pyramid_list.append(message)
+    #     else:
+    #         print("failed a request", r.status_code, i)
+    # return(pyramid_list)
 
-#     baseURL = (
-#         "http://api.wordnik.com/v4/words.json/randomWords?"
-#         "api_key={api_key}"
-#         "&minLength={length}"
-#         "&maxLength={length}"
-#         "&limit=1"
-#     )
-#     pyramid_list = []
-#     for i in range(3, 21, 2):
-#         url = baseURL.format(api_key="", length=i)
-#         r = requests.get(url)
-#         if r.status_code is 200:
-#             message = r.json()[0]["word"]
-#             pyramid_list.append(message)
-#         else:
-#             print("failed a request", r.status_code, i)
-#     for i in range(20, 3, -2):
-#         url = baseURL.format(api_key="", length=i)
-#         r = requests.get(url)
-#         if r.status_code is 200:
-#             message = r.json()[0]["word"]
-#             pyramid_list.append(message)
-#         else:
-#             print("failed a request", r.status_code, i)
-#     return pyramid_list
+def not_number_rejector(length):
+    """Ask for a number repeatedly until actually given one.
 
+    Ask for a number, and if the response is actually NOT a number 
+    (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
+    When you do get a number, return it.
+    """
+    given = False
+
+    if not given:
+        NUMBER = str(length)
+        if NUMBER.isdigit():
+            given = True
+            return int(NUMBER)
+        else: 
+            pass
 
 def get_a_word_of_length_n(length):
-    pass
-
+    import requests
+    url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={leng}"
+    if type(length) == int and length >= 3:
+        fullurl=url.format(leng=length)
+        pull = requests.get(fullurl)   
+        if pull.status_code is 200:         
+            wordn = pull.content  
+            wordn = str(wordn)
+            outputword = wordn[2:len(wordn)-1]
+                #    this retrives the word from the url
+        return outputword
+    else:
+        return None
+    
 
 def list_of_words_with_lengths(list_of_lengths):
-    pass
+    import requests
+    listwerds =[]
+    url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={leng}"
+    for i in list_of_lengths:
+        # if type(i) == int and length >= 3:
+        fullurl=url.format(leng=i)
+        pull = requests.get(fullurl)   
+        if pull.status_code is 200:         
+            wordn = pull.content  
+            wordn = str(wordn)
+            outputword = wordn[2:len(wordn)-1]
+                #    this retrives the word from the url
+        listwerds.append(outputword) 
+    return listwerds
+        
+    
+
+    baseURL = (
+        "http://api.wordnik.com/v4/words.json/randomWords?"
+        "api_key=5586ih53eyafp9iaztwo57zpldgdwwftvv493ppcx0qhno868"
+        "&minLength={length}"
+        "&maxLength={length}"
+        "&limit=1"
+    )
+    n2list =[]
+    for i in range(len(list_of_lengths)):
+        length=list_of_lengths[i]
+
+        url = baseURL.format(length=length)
+        r = requests.get(url)
+        
+        if r.status_code is 200:
+            message = r.json()[0]["word"]
+            n2list.append(message)
+    return(n2list)
 
 
-if __name__ == "__main__":
-    do_bunch_of_bad_things()
-    # wordy_pyramid("a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
+# if __name__ == "__main__":
+    # do_bunch_of_bad_things()
+    # wordy_pyramid("5586ih53eyafp9iaztwo57zpldgdwwftvv493ppcx0qhno868")
