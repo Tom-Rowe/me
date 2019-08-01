@@ -85,8 +85,6 @@ def wordy_pyramid():
 
 
 
-
-
 def pokedex(low=1, high=5):
     """ Return the name, height and weight of the tallest pokemon in the range low to high.
 
@@ -140,7 +138,6 @@ def diarist():
     TIP: remember to commit 'lasers.pew' and push it to your repo, otherwise
          the test will have nothing to look at.
     """
-    pass
 
     gcode_data = open(LOCAL + "/Trispokedovetiles(laser).gcode").readlines()
     number_of_times = 0
