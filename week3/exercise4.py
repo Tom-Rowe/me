@@ -24,31 +24,26 @@ def binary_search(low, high, actual_number):
     things much easier.
     """
 
-    l = 1
-    u = 100
-
-    while l <= u:
-        mid = (l+u) // 2
-
-        if mid == actual_number:
-            return True
-        else:
-            if mid < actual_number:
-                l = mid
-            else:
-                u = mid
-
-
-
-
-
     tries = 0
-    guess = 0
-    return {"guess": guess, "tries": tries}
-
-
-
-
+    while high > low:
+        #^Just making a while loop
+      mid = (low + high)//2
+      #^finding the midpoint between bounds
+      tries += 1
+      #^adding the tries 
+      if actual_number < mid:
+          #^Telling it to change the bounds if its wrong
+        print("Guess number {}: {}".format(tries,mid))
+        #^putting it into the right format for the "return"
+        high = mid -1
+        #^this changes the 'high' value to the mid value - 1, so that the binary search can continue
+      elif actual_number > mid:
+      #^this is the same but changes the lower bound 
+        print("Guess number {}: {}".format(tries,mid))
+        low = mid +1
+      else:
+        break
+    return {"guess": mid, "tries": tries}
 
 
 if __name__ == "__main__":
