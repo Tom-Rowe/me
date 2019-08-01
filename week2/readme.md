@@ -1,2 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
-this week on loops was a bitch
+this week on loops was very difficult and i was lost for a lot, i sort of understand it now after getting some help on the final exercises

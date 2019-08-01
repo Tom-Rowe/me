@@ -1,1 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+week four was pretty difficult, i understand the first part wekk, but i dont get the wordy pyramid or how to use the api key well, i could get the pokedex and diarist because i found some examples of similar things, and asked friends for help, but its still confusing
