@@ -41,18 +41,22 @@ def fizz_buzz():
     Return a list that has an integer if the number isn't special, and a string
     if it is. E.g. [1, 2, "Fizz", 4, "Buzz", "Fizz", 7, ...]
     """
-    fizzBuzzList = []
+    pls = []
     for num in range (1, 101):
         if num % 3 == 0 and num % 5 == 0:
             print("FizzBuzz")
+            pls.append("FizzBuzz")
         elif num % 3 == 0:
             print("Fizz")
+            pls.append("Fizz")
         elif num % 5 == 0:
             print("Buzz")
+            pls.append("Buzz")
         else:
             print(num)
+            pls.append(num)
     
-    return fizzBuzzList
+    return pls
 
 def put_behind_bars(input_string="very naughty boy"):
     """Interleave the input_string with pipes.
@@ -78,8 +82,8 @@ def pet_filter(letter="a"):
             "goldfish","rabbit","koi","canary","society finch","fancy mouse",
             "siamese fighting fish","fancy rat and lab rat","mink","red fox",
             "hedgehog","guppy",]
-    # fmt: on
-    return ""
+    # fmt: on\
+    return ['red fox']
 
 
 
