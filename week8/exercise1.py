@@ -149,7 +149,7 @@ def random_filler_text(number_of_words=200):
     return ""
 
 
-#def fast_filler(number_of_words=200):
+def fast_filler(number_of_words=200):
     """Reimplement random_filler_text.
     This time, the first time the code runs, save the dictionary returned
     from make_filler_text_dictionary to a file.
