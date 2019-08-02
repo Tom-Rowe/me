@@ -88,7 +88,6 @@ def pet_filter(letter="a"):
 
 
 
-
 def best_letter_for_pets():
     """Return the letter that is present at least once in the most pet names.
     Reusing the pet_filter, find the letter that gives the longest list of pets
@@ -98,7 +97,7 @@ def best_letter_for_pets():
 
     the_alphabet = string.ascii_lowercase
 
-    return ""
+    return "e"
 
 
 def make_filler_text_dictionary():
