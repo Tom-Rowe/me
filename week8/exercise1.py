@@ -83,7 +83,11 @@ def pet_filter(letter="a"):
             "siamese fighting fish","fancy rat and lab rat","mink","red fox",
             "hedgehog","guppy",]
     # fmt: on\
-    return ['red fox']
+    find_letter = []
+    for text in pets:
+        if letter in text:
+            find_letter.append(text)
+    return find_letter
 
 
 
