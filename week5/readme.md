@@ -1,2 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
-This was a pretty tricky week personally, i got most of the things, still dont really understand the wordy pyramid thing with the api because there have been so many different messages sent on piazza and said in class, which confused me.
+This was a pretty tricky week personally, i got most of the things, still dont really understand the wordy pyramid thing with the api because there have been so many different messages sent on piazza and said in class, which confused me. 

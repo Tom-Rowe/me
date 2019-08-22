@@ -1,2 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
-This week of exercises was a bit tricky, i have commented over the parts that i think i'll get lost on when i refer back to it to try keep it looking alright
+This week of exercises was a bit tough, i have commented over the parts that i think i'll get lost on when i refer back to it to try keep it looking alright
